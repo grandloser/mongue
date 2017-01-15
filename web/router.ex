@@ -16,6 +16,9 @@ defmodule Mongue.Router do
   scope "/", Mongue do
     pipe_through :browser # Use the default browser stack
 
+    post "/search", SearchController, :search
+    get "/search", SearchController, :index
+
     get "/", PageController, :index
   end
 

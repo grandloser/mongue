@@ -1,0 +1,27 @@
+
+<%= form_for @conn, search_path(@conn, :search), [as: :search], fn f -> %>
+<div>
+
+</div>
+<div class="row">
+  <div class="col-sm-1">
+  Search
+</div>
+<div class="col-sm-10">
+  <%= text_input f, :keyword, placeholder: "Title", class: "form-control" %>
+</div>
+<div class="col-sm-1">
+  <%= submit "Search" %>
+</div>
+</div>
+<% end %>
+
+  <%= case @items do %>
+
+  <% [] ->  %>
+   Nothing to display
+  <% _ -> %>
+    <%= for item <- @items do %>
+    <%= render "item.html", item: item %>
+    <% end %>
+  <% end%>

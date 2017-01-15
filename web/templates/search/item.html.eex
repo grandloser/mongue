@@ -1,0 +1,31 @@
+<div class="row" style="padding:10px;">
+  <div class="col-sm-3">
+    <%= if is_item_nil?(@item["cover_l_url"]) do %>
+      <div> Page cover is not available </div>
+    <%= else %>
+    <%= raw("<image src=#{HtmlEntities.decode @item["cover_l_url"]}/>") %>
+    <% end %>
+  </div>
+  <div class="col-sm-6 row">
+    <div class="col">
+    Title: <%=
+      @item["title"]
+      |> replace_tag
+      |> HtmlEntities.decode
+      |> raw
+      %>
+    </div>
+    <div class="col">
+    Description: <%=  HtmlEntities.decode @item["description"] %>
+    </div>
+    <div class="col">
+    Publisher: <%= HtmlEntities.decode @item["pub_nm"] %>
+    </div>
+    <div class="col">
+      Detail: <%= link "View", to: @item["link"] %>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    Location: I'm here
+  </div>
+</div>
