@@ -13,25 +13,33 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <div style="font-size: 5em">
-          <b>MONGUE DB</b>
+    <div class="left-panel">
+      <div class="left-header">
+        <div class="name">
+        MONGUE DB
         </div>
-      </header>
+        <div class="version">
+          V. 0.1
+        </div>
 
+      </div>
+      <div class="left-search">
+
+        <%= render Mongue.SearchView, "search_bar.html", assigns %>
+      </div>
+
+    </div>
+
+    <div class="right-panel">
+
+      <div class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
-
+      </div>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>

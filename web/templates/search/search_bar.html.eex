@@ -1,0 +1,18 @@
+
+<%= form_for @conn, search_path(@conn, :search), [as: :search], fn f -> %>
+<div>
+
+</div>
+<div class="row">
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-10 float-left">
+    <span class="left-search-glyph float-left glyphicon glyphicon-search" aria-hidden="true"></span>   <%= text_input f, :keyword, placeholder: "Title" %>
+  </div>
+  <div class="col-sm-1">
+    <%= submit "SEARCH", class: "hidden" %>
+  </div>
+  <div class="left-menu">
+  </div>
+</div>
+<% end %>

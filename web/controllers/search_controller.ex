@@ -5,6 +5,11 @@ defmodule Mongue.SearchController do
     render conn, "index.html", items: %{}
   end
 
+  def search_bar(conn, params) do
+    IO.puts "haha"
+    render conn, "search_bar.html", items: %{}
+  end
+
   def search(conn, params) do
     api_key = "d692fc1d9a302e26c4ea268cab4e2e37"
     url = "https://apis.daum.net/search/book?"
